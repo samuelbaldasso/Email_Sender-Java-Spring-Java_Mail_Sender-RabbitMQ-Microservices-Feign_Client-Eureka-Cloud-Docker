@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: email-service
+  
+  # Mail Configuration
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  # Eureka Client Configuration
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+    instance:
+      preferIpAddress: true
+
+# Server Configuration
+server:
+  port: ${SERVER_PORT:8081}
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Logging Configuration
+logging:
+  level:
+    com.sbaldasso.email_microservice: DEBUG
+    org.springframework.mail: DEBUG 
