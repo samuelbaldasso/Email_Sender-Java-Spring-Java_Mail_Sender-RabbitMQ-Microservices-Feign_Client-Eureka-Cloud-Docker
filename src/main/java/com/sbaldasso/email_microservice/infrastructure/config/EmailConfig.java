@@ -1,19 +1,16 @@
-package com.sbaldasso.email_microservice.config;
+package com.sbaldasso.email_microservice.infrastructure.config;
 
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import java.util.Properties;
 
 @Configuration
-@EnableDiscoveryClient
 @EnableFeignClients
-public class EmailServiceConfig {
+public class EmailConfig {
 
     @Bean
     public JavaMailSender javaMailSender() {
