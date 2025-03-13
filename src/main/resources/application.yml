@@ -1,7 +1,10 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop 
+      
   application:
     name: email-service
-  
   # Mail Configuration
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
@@ -23,6 +26,13 @@ spring:
     instance:
       preferIpAddress: true
 
+  # Disable Config Server
+  cloud:
+    config:
+      enabled: false
+      import-check:
+        enabled: false
+
 # Server Configuration
 server:
   port: ${SERVER_PORT:8081}
@@ -41,4 +51,4 @@ management:
 logging:
   level:
     com.sbaldasso.email_microservice: DEBUG
-    org.springframework.mail: DEBUG 
+    org.springframework.mail: DEBUG
